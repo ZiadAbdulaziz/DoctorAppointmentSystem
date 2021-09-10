@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DoctorAppointmentSystemModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Appointemt">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="app_date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="doctor_id" Type="Int32" />
+    <Property Name="client_id" Type="Int32" />
+    <NavigationProperty Name="Client" Relationship="Self.FK__Appointem__clien__2D27B809" FromRole="Appointemt" ToRole="Client" />
+    <NavigationProperty Name="Doctor" Relationship="Self.FK__Appointem__docto__2C3393D0" FromRole="Appointemt" ToRole="Doctor" />
+  </EntityType>
+  <EntityType Name="Client">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="55" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="age" Type="Int32" Nullable="false" />
+    <Property Name="gender" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="password" Type="String" MaxLength="55" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Appointemts" Relationship="Self.FK__Appointem__clien__2D27B809" FromRole="Client" ToRole="Appointemt" />
+  </EntityType>
+  <EntityType Name="Doctor">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="55" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="age" Type="Int32" Nullable="false" />
+    <Property Name="gender" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="speciality" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Address" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="password" Type="String" MaxLength="55" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="fees" Type="Double" Nullable="false" />
+    <Property Name="bio" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Appointemts" Relationship="Self.FK__Appointem__docto__2C3393D0" FromRole="Doctor" ToRole="Appointemt" />
+    <NavigationProperty Name="DoctorSchedules" Relationship="Self.FK__DoctorSch__docto__267ABA7A" FromRole="Doctor" ToRole="DoctorSchedule" />
+  </EntityType>
+  <EntityType Name="DoctorSchedule">
+    <Key>
+      <PropertyRef Name="work_day" />
+      <PropertyRef Name="doctor_id" />
+    </Key>
+    <Property Name="no_patients" Type="Int32" Nullable="false" />
+    <Property Name="work_day" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="doctor_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Doctor" Relationship="Self.FK__DoctorSch__docto__267ABA7A" FromRole="DoctorSchedule" ToRole="Doctor" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK__Appointem__clien__2D27B809">
+    <End Role="Client" Type="Self.Client" Multiplicity="0..1" />
+    <End Role="Appointemt" Type="Self.Appointemt" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Appointemt">
+        <PropertyRef Name="client_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Appointem__docto__2C3393D0">
+    <End Role="Doctor" Type="Self.Doctor" Multiplicity="0..1" />
+    <End Role="Appointemt" Type="Self.Appointemt" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Doctor">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Appointemt">
+        <PropertyRef Name="doctor_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DoctorSch__docto__267ABA7A">
+    <End Role="Doctor" Type="Self.Doctor" Multiplicity="1" />
+    <End Role="DoctorSchedule" Type="Self.DoctorSchedule" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Doctor">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="DoctorSchedule">
+        <PropertyRef Name="doctor_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="SystemEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Appointemts" EntityType="Self.Appointemt" />
+    <EntitySet Name="Clients" EntityType="Self.Client" />
+    <EntitySet Name="Doctors" EntityType="Self.Doctor" />
+    <EntitySet Name="DoctorSchedules" EntityType="Self.DoctorSchedule" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <AssociationSet Name="FK__Appointem__clien__2D27B809" Association="Self.FK__Appointem__clien__2D27B809">
+      <End Role="Client" EntitySet="Clients" />
+      <End Role="Appointemt" EntitySet="Appointemts" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Appointem__docto__2C3393D0" Association="Self.FK__Appointem__docto__2C3393D0">
+      <End Role="Doctor" EntitySet="Doctors" />
+      <End Role="Appointemt" EntitySet="Appointemts" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DoctorSch__docto__267ABA7A" Association="Self.FK__DoctorSch__docto__267ABA7A">
+      <End Role="Doctor" EntitySet="Doctors" />
+      <End Role="DoctorSchedule" EntitySet="DoctorSchedules" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
