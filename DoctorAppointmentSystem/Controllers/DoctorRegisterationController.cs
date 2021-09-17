@@ -32,7 +32,6 @@ namespace DoctorAppointmentSystem.Controllers
 
         }
 
-        [HttpGet]
         public ActionResult Schedule()
         {    
             var doc = db.Doctors.Find(Session["doctorId"]);
@@ -49,7 +48,6 @@ namespace DoctorAppointmentSystem.Controllers
         [HttpPost]
         public RedirectToRouteResult Schedule( int noPatients, string workDay)
         {
-
             DoctorSchedule sch = new DoctorSchedule() { doctor_id = (int)Session["doctorId"], work_day = workDay, no_patients = noPatients};
             db.DoctorSchedules.Add(sch);
             db.SaveChanges();

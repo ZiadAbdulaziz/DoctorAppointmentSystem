@@ -19,8 +19,7 @@ namespace DoctorAppointmentSystem.Controllers
             }
             int doctorId = (int)Session["doctorId"];
             var schedules = db.DoctorSchedules.Where(d => d.doctor_id == doctorId).ToList();
-            return View("MySchedule", schedules);
-            
+            return View("MySchedule", schedules); 
         }
         
         [HttpGet]
