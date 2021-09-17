@@ -10,6 +10,7 @@
 namespace DoctorAppointmentSystem.Models
 {
     using System;
+    using System.ComponentModel.DataAnnotations;
     using System.Collections.Generic;
     
     public partial class Client
@@ -19,12 +20,17 @@ namespace DoctorAppointmentSystem.Models
         {
             this.Appointemts = new HashSet<Appointemt>();
         }
-    
+        [Required]
         public int id { get; set; }
+        [Required]
         public string name { get; set; }
+        [Required]
         public int age { get; set; }
+        [Required, StringLength(1)]
         public string gender { get; set; }
+        [Required]
         public string email { get; set; }
+        [Required]
         public string password { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

@@ -1,16 +1,21 @@
-﻿<!DOCTYPE html>
+﻿
+@{
+    ViewBag.Title = "UserLayout";
+}
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.title</title>
+    <title>Home</title>
     <link rel="stylesheet" href="~/Content/bootstrap.min.css">
     <script href></script>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand " href="/Home">Home</a>
+        <a class="navbar-brand " href="index.html">Home</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -18,13 +23,13 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="/UserRegisteration">Sign up</a>
+                    <a class="nav-link" href="/MySchedule">My Schedule</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/UserLogin">Sign in</a>
+                    <a class="nav-link" href="/MyAppointments">My Appointments</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/Home/ForDoctor">For Doctors</a>
+                    <a class="nav-link" href="/DoctorLogin/logOut">log Out</a>
                 </li>
 
             </ul>
@@ -44,7 +49,7 @@
     <script src="~/Content/scripts/bootstrap.min.js"></script>
     <script src="~/Scripts/jquery-3.0.0.min.js"></script>
     <script src="~/Scripts/bootstrap.bundle.min.js"></script>
-    @RenderSection("Scripts", required: false)
+
 </body>
 
 </html>

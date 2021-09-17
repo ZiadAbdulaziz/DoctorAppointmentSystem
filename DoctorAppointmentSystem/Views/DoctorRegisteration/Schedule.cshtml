@@ -1,0 +1,20 @@
+﻿
+@model DoctorAppointmentSystem.Models.Doctor
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Create</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+</head>
+<body>
+    <form class="form-horizontal" method="post" action="/DoctorRegisteration/Schedule">
+        <h2 class="bg-primary" style="width:700px">Doctor number : @Model.id</h2>
+        <h2 class="bg-primary" style="width:500px">DR.@Model.name :</h2>
+        @Html.Partial("Schedule_Edit2")
+
+    </form>
+</body>
+</html>
+

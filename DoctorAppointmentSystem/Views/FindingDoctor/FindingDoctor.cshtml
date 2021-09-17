@@ -1,0 +1,62 @@
+﻿@using DoctorAppointmentSystem.Models
+@{ 
+    Layout = "~/Views/Shared/UserLayout.cshtml";
+}
+@model List<Doctor> 
+
+    
+
+
+    <div class="container row mt-4">
+        <div class="col-md-8 offset-md-2">
+            @using (Html.BeginForm("Index", "FindingDoctor", FormMethod.Get))
+            {
+                @Html.ActionLink("Sort", "Index", new { sortOrder = ViewBag.SortParm, searchString = ViewBag.SearchString })
+                <label class="ml-3">Find By Name</label>
+                @Html.TextBox("SearchString")
+                <input type="submit" value="Search" />
+
+            }
+        </div>        
+            
+    </div>
+
+  
+    <div class="container mt-3">
+        @for(int i = 0; i < Model.Count; i++)
+        {
+            if (i == 0)
+            {
+                
+                @:<div class="card-columns">
+                  
+            }
+            else if (i % 3 == 0)
+            {
+                @:</div>
+                @:<div class="card-columns">
+         
+            }
+                <div class="card mt-3">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">@Model[i].name</h5>
+                        <p class="card-text mt-4">
+                            Specialized in: @Model[i].speciality
+                        </p>
+                        <p class="card-text mt-2">
+                            Location: @Model[i].Address
+                        </p>
+                        <p class="card-text mt-2">
+                            Fees: @Model[i].fees LE
+                        </p>
+                    </div>
+                    <div class="card-footer text-center">
+                        <a class="btn btn-primary" href="/Reservation/index/@Model[i].id">Book</a>
+                    </div>
+                </div>
+        
+
+         }
+    </div>
+           
+            

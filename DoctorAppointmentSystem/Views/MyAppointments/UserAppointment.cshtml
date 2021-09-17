@@ -1,0 +1,67 @@
+﻿@using DoctorAppointmentSystem.Models;
+@model List<Appointemt>
+@{
+    ViewBag.Title = "My appointments";
+}
+@if (Session["userId"] != null)
+{
+    Layout = "~/Views/Shared/UserLayout.cshtml";
+}
+<h2 class="text-center mt-3">Upcoming Appointments</h2>
+<table class="table mt-3">
+    <thead>
+        <tr>
+            <th>Doctor name</th>
+            <th>Address</th>
+            <th>Date</th>
+            <th>Fees</th>
+            <th>Cancel</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var appointment in Model.Where(a => a.app_date.Date.CompareTo(DateTime.Now.Date) > 0).ToList())
+        {
+            <tr>
+                
+                <td>@appointment.Doctor.name</td>
+                <td>@appointment.Doctor.Address</td>
+                <td name="date">@appointment.app_date.ToString("dd/MM/yyyy")</td>
+                <td>@appointment.Doctor.fees</td>
+                <td><a class="btn btn-danger" href="/MyAppointments/Cancel/@appointment.id">Cancel</a></td>
+
+            </tr>
+        }
+    </tbody>
+
+</table>
+
+<h2 class="text-center mt-5">Previous Appointments</h2>
+<table class="table mt-3">
+    <thead>
+        <tr>
+            <th>Doctor name</th>
+            <th>Address</th>
+            <th>Date</th>
+            <th>Fees</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var appointment in Model.Where(a => a.app_date.Date.CompareTo(DateTime.Now.Date) <= 0).ToList())
+        {
+            <tr>
+                <td>@appointment.Doctor.name</td>
+                <td>@appointment.Doctor.Address</td>
+                <td>@appointment.app_date.ToString("dd/MM/yyyy")</td>
+                <td>@appointment.Doctor.fees</td>
+
+            </tr>
+        }
+    </tbody>
+
+</table>
+
+
+
+
+
+

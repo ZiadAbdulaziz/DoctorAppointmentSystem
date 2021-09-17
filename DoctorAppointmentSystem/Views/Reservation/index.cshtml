@@ -1,0 +1,68 @@
+﻿@using DoctorAppointmentSystem.Models
+@{
+    Layout = null;
+}
+@model Doctor
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctors</title>
+    <link rel="stylesheet" href="~/Content/bootstrap.min.css">
+    <script href></script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand " href="index.html">Home</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="signUp.html">Log out</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <form  action="/Reservation/Book" method="post">
+            <h2 class="text-center">@Model.name</h2>
+            <div class="form-group">
+                <label for="date">Select a date</label>
+                <select class="form-control" id="date" name="date">
+                    
+                    @foreach(var item in ViewBag.PossibleDates)
+                    {
+                        <option value="@item.Item1">@item.Item2   @item.Item1.ToString("dd/MM/yyyy")</option>
+                    }
+                </select>
+                <input type="number" name="doctorId" value="@Model.id" hidden/>
+            </div>
+            <button class="btn btn-primary" type="submit">Book</button>
+        </form>
+
+    </div>
+    
+
+
+
+    
+   
+
+
+
+
+
+
+    <script src="~/Scripts/jquery-3.0.0.js"></script>
+    <script src="~/Scripts/popper.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</body>
+
+</html>

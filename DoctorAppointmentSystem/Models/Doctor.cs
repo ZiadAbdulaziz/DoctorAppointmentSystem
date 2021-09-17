@@ -9,6 +9,7 @@
 
 namespace DoctorAppointmentSystem.Models
 {
+    using System.ComponentModel.DataAnnotations;
     using System;
     using System.Collections.Generic;
     
@@ -20,16 +21,25 @@ namespace DoctorAppointmentSystem.Models
             this.Appointemts = new HashSet<Appointemt>();
             this.DoctorSchedules = new HashSet<DoctorSchedule>();
         }
-    
+        [Required]
         public int id { get; set; }
+        [Required(ErrorMessage = "Name is required")]
         public string name { get; set; }
+        [Required]
         public int age { get; set; }
+        [Required(ErrorMessage ="gender is required"), StringLength(1)]
         public string gender { get; set; }
+        [Required]
         public string speciality { get; set; }
+        [Required]
         public string Address { get; set; }
+        [Required]
         public string email { get; set; }
+        [Required]
         public string password { get; set; }
+        [Required]
         public double fees { get; set; }
+        [Required]
         public string bio { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

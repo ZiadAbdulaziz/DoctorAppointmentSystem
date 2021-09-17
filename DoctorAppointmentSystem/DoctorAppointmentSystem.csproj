@@ -171,6 +171,8 @@
     <Compile Include="Controllers\DoctorRegisterationController.cs" />
     <Compile Include="Controllers\FindingDoctorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MyAppointmentsController.cs" />
+    <Compile Include="Controllers\MyScheduleController.cs" />
     <Compile Include="Controllers\ReservationController.cs" />
     <Compile Include="Controllers\UserLoginController.cs" />
     <Compile Include="Controllers\UserRegisterationController.cs" />
@@ -222,7 +224,6 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\jquery-3.0.0.slim.min.map" />
     <Content Include="Scripts\jquery-3.0.0.min.map" />
     <Content Include="Scripts\umd\popper.min.js.map" />
@@ -234,6 +235,28 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="Views\FindingDoctor\FindingDoctor.cshtml" />
+    <Content Include="Views\DoctorRegisteration\Index.cshtml" />
+    <Content Include="Views\DoctorRegisteration\Index_Edit.cshtml" />
+    <Content Include="Views\Reservation\index.cshtml" />
+    <Content Include="Views\DoctorRegisteration\Schedule.cshtml" />
+    <Content Include="Views\DoctorRegisteration\Schedule_Edit.cshtml" />
+    <Content Include="Views\UserLogin\Login.cshtml" />
+    <Content Include="Views\UserRegisteration\Registeration.cshtml" />
+    <Content Include="Views\UserRegisteration\Registeration1.cshtml" />
+    <Content Include="Views\DoctorLogin\Login.cshtml" />
+    <Content Include="Views\DoctorRegisteration\Schedule_edit2.cshtml" />
+    <Content Include="Views\Shared\UserLayout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\MyAppointments\UserAppointment.cshtml" />
+    <Content Include="Views\Home\UserHome.cshtml" />
+    <Content Include="Views\Shared\ForDoctorLayout.cshtml" />
+    <Content Include="Views\Home\ForDoctors.cshtml" />
+    <Content Include="Views\Shared\DoctorLayout.cshtml" />
+    <Content Include="Views\MySchedule\MySchedule.cshtml" />
+    <Content Include="Views\MySchedule\EditSchedule.cshtml" />
+    <Content Include="Views\Home\DoctorHome.cshtml" />
+    <Content Include="Views\MyAppointments\DoctorAppointment.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -243,12 +266,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\DoctorLogin\" />
-    <Folder Include="Views\DoctorRegisteration\" />
-    <Folder Include="Views\FindingDoctor\" />
-    <Folder Include="Views\Reservation\" />
-    <Folder Include="Views\UserLogin\" />
-    <Folder Include="Views\UserRegisteration\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />

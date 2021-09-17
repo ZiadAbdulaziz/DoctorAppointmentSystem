@@ -1,0 +1,47 @@
+﻿@model DoctorAppointmentSystem.Models.DoctorSchedule
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+    <h4 class="bg-warning" style="width:350px">DoctorSchedule</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(model => model.no_patients, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.no_patients, new { htmlAttributes = new { @class = "form-control", required = "required" } })
+            @Html.ValidationMessageFor(model => model.no_patients, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.work_day, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @*@Html.DropDownListFor(model => model.work_day, new SelectList(ViewBag.Days, "Text", "Value"), new { htmlAttributes = new { @class = "form-control ", required = "required" , maxlength = 3} })
+            @Html.ValidationMessageFor(model => model.work_day, "", new { @class = "text-danger" })*@
+            
+
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.doctor_id, htmlAttributes: new { @class = "control-label col-md-2"  })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.doctor_id, new { htmlAttributes = new { @class = "form-control" , @readonly = "readonly", @Value = ViewBag.id } })
+            @Html.ValidationMessageFor(model => model.doctor_id, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Add Schedule" class="btn btn-primary" />
+            @Html.ActionLink("Done", "Index", "Home", null, new { @class = "btn btn-secondary" })
+        </div>
+    </div>
+</div>
+}
+

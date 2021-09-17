@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewBag.Title = "Schedule_edit2";
+}
+
+<h2>Schedule_edit2</h2>
+<form action="/DoctorRegisteration/Schedule" method="post">
+
+    <div class="form-group">
+        <label class="form-label" for="workDay"><b>Work Day</b></label>
+        <select class="form-control" id="workDay" name="workDay">
+            @foreach (var item in ViewBag.AvailableDays)
+            {
+                <option value="@item">@item</option>
+
+            }
+        </select>
+    </div>
+    <div class="form-group">
+        <label class="form-label" for="noPatients"><b>number of patients</b></label>
+        <input class="form-control" type="number" id="nopatients" name="noPatients">
+    </div>
+
+    <button type="submit" class="btn btn-info">
+        <b>Add Schedule</b>
+    </button>
+    <a href="/Home/index" class="btn btn-primary">Save</a>
+
+</form>
+

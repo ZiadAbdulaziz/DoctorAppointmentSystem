@@ -1,9 +1,94 @@
-﻿@{
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
+﻿@using DoctorAppointmentSystem.Models 
+@model Doctor 
+
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Home";
 }
 
-<h2>Index</h2>
+<div class="jumbotron mt-4 p-3 p-md-5 text-white rounded bg-info">
+    <div class="col-md-4 px-0">
+        <h1 class="display-4 font-italic">Absolute care, Every day.</h1>
+        <p class="lead my-3">Make your clinical reservation online anytime anywhere!</p>
+        <p class="lead mb-0"><a href="/FindingDoctor/Index" class="text-white font-weight-bold">Book an Appointment NOW !!</a></p>
+    </div>
+</div>
+
+<div _ngcontent-serverapp-c167="" class="mt95 mb100 lead" >
+    <div _ngcontent-serverapp-c167="" class="container text-center">
+        <div _ngcontent-serverapp-c168="" class="row font-weight-normal">
+            <div _ngcontent-serverapp-c168="" class="col-12 robotoslab-regular fz38 text-dark6 fmedium sm-fz22" style="margin:8px;">What are you looking for?</div>
+            <div _ngcontent-serverapp-c168="" class="offset-xl-1 col-xl-10 col-md-12 mt20 fz20 text-dark3 sm-fz14"> Based on your case you can choose the right type of doctor that suits you.</div>
+        </div>
+        <div _ngcontent-serverapp-c167="" class="row mt32" style="margin:20px;">
+            <div _ngcontent-serverapp-c167="" class="card border-info mb-3 col-md-4 sm-mt16" >
+                <div class="card-header">Therapist</div>
+                <div class="card-body text-info">
+                    <h5 class="card-title">Therapy can be a long-term process</h5>
+                    <p class="card-text">how you see yourself and the world, your thoughts, your behaviors and why you do the things you do. </p>
+                </div>
+            </div>
+            <div _ngcontent-serverapp-c167="" class="card border-info mb-3 col-md-4 sm-mt16">
+                <div class="card-header">Cardiologists</div>
+                <div class="card-body text-info">
+                    <h5 class="card-title"> Heart dieseases must never be carless about</h5>
+                </div>
+            </div>
+            <div _ngcontent-serverapp-c167="" class="card border-info mb-3 col-md-4 sm-mt16 ">
+                <div class="card-header">General Surgeons </div>
+                <div class="card-body text-info">
+                    <h5 class="card-title">specialized knowledge of the entire surgical process</h5>
+                    <p class="card-text">from the initial evaluation through preparation, procedure, and post-operative management.  </p>
+                </div>
+            </div>
+        </div>
+        <div _ngcontent-serverapp-c168="" class="row font-weight-normal">
+            <div _ngcontent-serverapp-c168="" class="col-12 robotoslab-regular fz38 text-dark6 fmedium sm-fz22" style="margin:8px;">Sign in to connect to most specilized doctors and they are alaways there for you</div>
+            <div _ngcontent-serverapp-c168="" class="col-12 robotoslab-regular fz38 text-dark6 fmedium sm-fz22" style="margin:8px;">
+                @Html.ActionLink("Sign In", "Index", "UserLogin", null, new { @class = "btn btn-outline-info" })
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container fz38 text-dark6 fmedium sm-fz22" style="font-size:20px; margin:20px;padding:10px;">
+    <div class="row no-m">
+        <div class="col-12 mb50">
+            <div class="title text-md-left text-center mt95 sm-mt64">
+                <div class="fz28 robotoslab-regular fbold text-dark3">How DAS Works?</div>
+            </div>
+        </div>
+        <div class="col-md-6 sm-mr16 sm-ml16" >
+            <div class="d-flex" style="margin:20px;padding:10px;">
+                <div class="mr12 sm-mr8">
+                    <div class="step-number fz32 sm-fz22 fbold d-flex text-blue justify-content-center align-items-center btn btn-outline-secondary col-2"> 1 </div>
+                    <div class="step-divider"></div>
+                </div><div>
+                    <div class="text-blue fz22 sm-fz18">Get matched to the right doctor</div>
+                    <div class="text-dark2 fz16 mt16 fmedium sm-fz14 step-desc" style="font-size:15px;">Choose Your suitable doctor</div>
+                </div>
+            </div>
+            <div class="d-flex" style="margin:20px;padding:10px;">
+                <div class="mr12 sm-mr8">
+                    <div class="step-number fz32 sm-fz22 fbold d-flex text-blue justify-content-center align-items-center btn btn-outline-secondary col-2"> 2 </div>
+                    <div class="step-divider"></div>
+                </div>
+                <div>
+                    <div class="text-blue fz22 sm-fz18">Book your appointment</div>
+                    <div class="text-dark2 fz16 mt16 fmedium sm-fz14 step-desc" style="font-size:15px;">Choose your suitable date to visit your doctor</div>
+                </div>
+            </div>
+            <div class="d-flex" style="margin:20px;padding:10px;">
+                <div class="mr12 sm-mr8">
+                    <div class="step-number fz32 sm-fz22 fbold d-flex text-blue justify-content-center align-items-center btn btn-outline-secondary col-2"> 3 </div>
+                    <div class="step-divider"></div>
+                </div>
+                <div>
+                    <div class="text-blue fz22 sm-fz18 font-weight-normal">Get Ready</div>
+                    <div class="text-dark2 fz16 mt16 fmedium sm-fz14 step-desc font-weight-lighter" style="font-size:15px;">Don't miss your appointment</div>
+                </div>
+            </div>
+            </div>
+        </div>
+</div>
+
 

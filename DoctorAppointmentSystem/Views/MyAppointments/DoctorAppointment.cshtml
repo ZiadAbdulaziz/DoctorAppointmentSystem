@@ -1,0 +1,64 @@
+﻿@using DoctorAppointmentSystem.Models;
+@model List<Appointemt>
+@{
+    ViewBag.Title = "My appointments";
+}
+
+@{
+    Layout = "~/Views/Shared/UserLayout.cshtml";
+}
+<h2 class="text-center mt-3">Upcoming Appointments</h2>
+<table class="table mt-3">
+    <thead>
+        <tr>
+            <th>Patient name</th>
+            <th>age</th>
+            <th>Date</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var appointment in Model.Where(a => a.app_date.Date.CompareTo(DateTime.Now.Date) > 0).ToList())
+        {
+            <tr>
+
+                <td>@appointment.Client.name</td>
+                <td>@appointment.Client.age</td>
+                <td name="date">@appointment.app_date.ToString("dd/MM/yyyy")</td>
+
+            </tr>
+        }
+    </tbody>
+
+</table>
+
+<h2 class="text-center mt-5">Previous Appointments</h2>
+<table class="table mt-3">
+    <thead>
+        <tr>
+            <th>Patient name</th>
+            <th>age</th>
+            <th>Date</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var appointment in Model.Where(a => a.app_date.Date.CompareTo(DateTime.Now.Date) <= 0).ToList())
+        {
+            <tr>
+
+                <td>@appointment.Client.name</td>
+                <td>@appointment.Client.age</td>
+                <td name="date">@appointment.app_date.ToString("dd/MM/yyyy")</td>
+
+            </tr>
+        }
+    </tbody>
+
+</table>
+
+
+
+
+
+

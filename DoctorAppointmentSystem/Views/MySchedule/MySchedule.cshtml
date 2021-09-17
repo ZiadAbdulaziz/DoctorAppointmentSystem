@@ -1,0 +1,30 @@
+﻿@using DoctorAppointmentSystem.Models;
+@model List<DoctorSchedule>
+@{ 
+    Layout = "~/Views/Shared/DoctorLayout.cshtml";
+}
+@{
+    ViewBag.Title = "MySchedule";
+}
+
+<h2 class="text-center mt-3">MySchedule</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Work Day</th>
+            <th>Number of patients</th>
+            <th>Update</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var schedule in Model)
+        {
+            <tr>
+                <td>@schedule.work_day</td>
+                <td>@schedule.no_patients</td>
+                <td>@Html.ActionLink("Edit Schedule", "EditSchedule", new { workDay = schedule.work_day, noPatients = schedule, @class="btn btn-primary"})</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
