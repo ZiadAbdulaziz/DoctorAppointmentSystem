@@ -24,13 +24,30 @@ namespace DoctorAppointmentSystem.Controllers
                 return RedirectToAction("Index", new { errorMessage = "email or password is not correct!"});
             }
             Session["doctorId"] = doctor.id;
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index","Home" );
+        }
+        public ActionResult updateBio(string bio)
+        {
+            int doctorId = (int)Session["doctorId"];
+            var Doc = db.Doctors.Where(d => d.id == doctorId).FirstOrDefault();
+            Doc.bio = bio;
+            db.SaveChanges();
+            return RedirectToAction("Index", "home");
+        }
+        public ActionResult updateAddress(string address)
+        {
+            int doctorId = (int)Session["doctorId"];
+            var Doc = db.Doctors.Where(d => d.id == doctorId).FirstOrDefault();
+            Doc.Address = address;
+            db.SaveChanges();
+            return RedirectToAction("Index", "home");
         }
         public RedirectToRouteResult Logout()
         {
             Session.Abandon();
             return RedirectToAction("Index", "Home");
         }
-        
+
+
     }
 }

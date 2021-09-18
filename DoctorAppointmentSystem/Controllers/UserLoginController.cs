@@ -36,6 +36,7 @@ namespace DoctorAppointmentSystem.Controllers
             Session["userId"] = user.id;
             return RedirectToAction("Index", "Home");
         }
+        
         public RedirectToRouteResult Logout()
         {
             Session.Abandon();
